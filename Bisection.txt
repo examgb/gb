@@ -1,0 +1,23 @@
+def fun(x):
+ y = x**3-x-1
+ return y
+def bisection(a, b, max_iterations):
+ if fun(a) * fun(b) >= 0:
+ print("invalid")
+ return
+ c = a
+ iterations = 0
+ while abs(b - a) >= 0.01 and iterations < max_iterations:
+ c = (a + b) / 2
+ if fun(c) == 0.0:
+ break
+ if fun(c) * fun(a) < 0:
+ b = c
+ else:
+ a = c
+ iterations += 1
+ print("the value of root:", c)
+a = float(input("enter the a = "))
+b = float(input("enter the b = "))
+max_iterations = int(input("enter the maximum number of iterations = "))
+bisection(a, b, max_iterations)
